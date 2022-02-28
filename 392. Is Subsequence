@@ -1,0 +1,33 @@
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        //this is a brute force approach with TC O(N*M)
+        //we always travel in forward direction whether we find "s" letter in "t" or not
+//         every time we have a match of letters we count it,increment start index by 1 and break from inner while loop
+        //if we not find  match we simply increment start index by 1
+        //at last we match whether count equals length of "s" string or not and accordingly return true or false 
+        int start=0;
+        int count=0;
+        
+        for(int i=0;i<s.length();i++)
+        {
+            char ch=s.charAt(i);
+            
+            while(start<t.length())
+            {
+                if(ch==t.charAt(start))
+                {
+                    count++;
+                    start++;
+                    break;
+                }
+                else
+                    start++;
+            }
+        }
+        
+        if(count==s.length())
+            return true;
+            
+        return false;
+    }
+}
